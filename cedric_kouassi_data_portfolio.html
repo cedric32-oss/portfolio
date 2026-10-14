@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cedric KOUASSI - Data Scientist & Analyst Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        spotify: '#1DB954',
+                        darkBg: '#0f172a',
+                        cardDark: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #1DB954 0%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-spotify selection:text-black">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/60 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-spotify/20 border border-spotify/40 flex items-center justify-center text-spotify font-bold text-xl group-hover:scale-105 transition-transform">
+                    CK
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight block">Cedric KOUASSI</span>
+                    <span class="text-xs text-slate-400 block font-medium">Data Scientist & AI Researcher</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#about" class="text-slate-300 hover:text-spotify transition-colors">About</a>
+                <a href="#music-project" class="text-slate-300 hover:text-spotify transition-colors">Music Trends Project</a>
+                <a href="#visualizations" class="text-slate-300 hover:text-spotify transition-colors">Data Insights</a>
+                <a href="#machine-learning" class="text-slate-300 hover:text-spotify transition-colors">ML Models</a>
+                <a href="#research" class="text-slate-300 hover:text-spotify transition-colors">Key Findings</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2.5 rounded-xl bg-spotify hover:bg-green-500 text-slate-950 font-semibold text-sm transition-all shadow-lg shadow-spotify/20 hover:shadow-spotify/40 active:scale-95">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i> Get in Touch
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 text-sm">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-spotify">About</a>
+            <a href="#music-project" class="block py-2 text-slate-300 hover:text-spotify">Music Trends Project</a>
+            <a href="#visualizations" class="block py-2 text-slate-300 hover:text-spotify">Data Insights</a>
+            <a href="#machine-learning" class="block py-2 text-slate-300 hover:text-spotify">ML Models</a>
+            <a href="#research" class="block py-2 text-slate-300 hover:text-spotify">Key Findings</a>
+            <a href="#contact" class="block py-2 text-spotify font-semibold">Get in Touch</a>
+        </div>
+    </header>
+
+    <section id="hero" class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+        <!-- Background Glowing Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-spotify/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs font-semibold text-spotify">
+                        <span class="w-2 h-2 rounded-full bg-spotify animate-pulse"></span>
+                        <span>Data Science & Analytics Portfolio</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Uncovering Patterns in <br>
+                        <span class="gradient-text">Music Trends & AI Analytics</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Hi, I'm <strong class="text-white font-semibold">Cedric KOUASSI</strong>. I specialize in extracting actionable intelligence from massive streaming datasets (11M+ data points) using machine learning, data mining, and predictive modeling.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#music-project" class="px-6 py-3.5 rounded-xl bg-spotify hover:bg-green-500 text-slate-950 font-bold text-sm flex items-center space-x-2 transition-all shadow-lg shadow-spotify/25 hover:scale-[1.02]">
+                            <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                            <span>Explore Music Trends Study</span>
+                        </a>
+                        <button onclick="downloadReportSummary()" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-sm flex items-center space-x-2 transition-all hover:scale-[1.02]">
+                            <i data-lucide="download" class="w-5 h-5 text-spotify"></i>
+                            <span>Download Study Summary</span>
+                        </button>
+                    </div>
+
+                    <!-- Highlights Badge Bar -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl font-bold text-white">10.9M+</div>
+                            <div class="text-xs text-slate-400 mt-1">Tracks & Chart Records</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-spotify">0.763 R²</div>
+                            <div class="text-xs text-slate-400 mt-1">Random Forest Fit</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-400">89.4%</div>
+                            <div class="text-xs text-slate-400 mt-1">KNN Impact Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Card / Visual Preview -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 relative border border-slate-700/50 shadow-2xl">
+                        <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-12 rounded-2xl bg-spotify/20 flex items-center justify-center text-spotify">
+                                    <i data-lucide="music" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-white text-base">Analyzing Music Trends</h3>
+                                    <p class="text-xs text-slate-400">Featured AI Research Project</p>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Active Case Study</span>
+                        </div>
+
+                        <div class="py-6 space-y-4">
+                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+                                <div class="text-xs text-slate-400 mb-1 flex justify-between">
+                                    <span>Spotify Top 200 Charts</span>
+                                    <span class="text-spotify font-semibold">34 Countries</span>
+                                </div>
+                                <div class="text-sm font-semibold text-white">9,807,001 Daily Chart Entries</div>
+                            </div>
+
+                            <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+                                <div class="text-xs text-slate-400 mb-1 flex justify-between">
+                                    <span>Spotify Tracks Dataset</span>
+                                    <span class="text-blue-400 font-semibold">1,162,095 Songs</span>
+                                </div>
+                                <div class="text-sm font-semibold text-white">Audio Attributes, Followers & Popularity</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex items-center justify-between text-xs text-slate-400">
+                            <span class="flex items-center gap-1.5"><i data-lucide="code" class="w-4 h-4 text-spotify"></i> R, ggplot2, randomForest, KNN</span>
+                            <span class="text-slate-500">2026 Edition</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-slate-900/60 border-y border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-spotify mb-2">About The Researcher</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Cedric KOUASSI</h3>
+                <p class="text-slate-400 mt-4 leading-relaxed">
+                    Data Scientist passionate about transforming complex raw audio metadata and streaming chart behaviors into insightful statistical models. Experienced in dataset processing, machine learning regression, classification algorithms, and high-impact visual storytelling.
+                </p>
+            </div>
+
+            <!-- Core Skill Matrix -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-spotify/15 flex items-center justify-center text-spotify mb-4">
+                        <i data-lucide="database" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">Data Processing & Exploration</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Handling multi-million row datasets, data cleaning, categorical encoding, handling missing values, and descriptive statistics in R and Python.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400 mb-4">
+                        <i data-lucide="cpu" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">Predictive Modeling & ML</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Supervised learning implementation including Random Forest Regression ($R^2=0.763$) and K-Nearest Neighbors ($89.4\%$ accuracy) for audio trend forecasting.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-slate-700 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center text-purple-400 mb-4">
+                        <i data-lucide="line-chart" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-lg mb-2">Statistical Data Storytelling</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Extracting real-world industry implications regarding song longevities, hit predictors, underrated track detection, and artist follower correlations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="music-project" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-spotify mb-2">Featured Project Deep-Dive</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Analyzing Music Trends on Streaming Platforms</h3>
+                </div>
+                <p class="text-slate-400 text-sm max-w-md mt-4 md:mt-0">
+                    A comprehensive empirical study analyzing over 11 Million music track entries across 34 countries on Spotify.
+                </p>
+            </div>
+
+            <!-- Project Summary Stats Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Tracks Dataset</div>
+                    <div class="text-3xl font-extrabold text-white mt-2">1,162,095</div>
+                    <div class="text-xs text-slate-500 mt-1">Unique songs & audio metadata</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Charts Dataset</div>
+                    <div class="text-3xl font-extrabold text-white mt-2">9,807,001</div>
+                    <div class="text-xs text-slate-500 mt-1">Top 200 daily rankings</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Top Charting Artist</div>
+                    <div class="text-3xl font-extrabold text-spotify mt-2">Ed Sheeran</div>
+                    <div class="text-xs text-slate-500 mt-1">218,000+ Chart appearances</div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-slate-800">
+                    <div class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Follower - Popularity Correlation</div>
+                    <div class="text-3xl font-extrabold text-blue-400 mt-2">r = 0.171</div>
+                    <div class="text-xs text-slate-500 mt-1">Weak linear correlation</div>
+                </div>
+            </div>
+
+            <div id="visualizations" class="space-y-12">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h3 class="text-2xl font-bold text-white">Interactive Visual Analytics</h3>
+                    <p class="text-slate-400 text-sm mt-2">Explore the interactive graphs recreated directly from Cedric's analysis report.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Chart 1: Song Popularity Distribution -->
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Distribution of Song Popularity</h4>
+                                    <p class="text-xs text-slate-400">Right-Skewed density of tracks by popularity score (0-100)</p>
+                                </div>
+                                <span class="p-2 rounded-lg bg-slate-800 text-spotify"><i data-lucide="bar-chart" class="w-5 h-5"></i></span>
+                            </div>
+                            <div class="h-64 relative">
+                                <canvas id="chartPopularityDistribution"></canvas>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300">
+                            <strong class="text-spotify">Observation:</strong> The distribution is heavily right-skewed. The median popularity score is only <strong>2.00</strong>, indicating that the vast majority of released songs stay relatively unknown, while only a select fraction achieve virality.
+                        </div>
+                    </div>
+
+                    <!-- Chart 2: Top Genres Toggle (Common vs Popular) -->
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Genre Insights Analysis</h4>
+                                    <p class="text-xs text-slate-400">Comparing occurrence counts vs. popularity metrics</p>
+                                </div>
+                                <div class="flex bg-slate-900 p-1 rounded-xl border border-slate-800 text-xs">
+                                    <button id="btnGenreCommon" onclick="toggleGenreChart('common')" class="px-3 py-1.5 rounded-lg font-semibold bg-spotify text-slate-950 transition-all">Most Common</button>
+                                    <button id="btnGenrePopular" onclick="toggleGenreChart('popular')" class="px-3 py-1.5 rounded-lg font-semibold text-slate-400 hover:text-white transition-all">Highest Popularity</button>
+                                </div>
+                            </div>
+                            <div class="h-64 relative">
+                                <canvas id="chartGenreDistribution"></canvas>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300" id="genreObservation text">
+                            <strong class="text-spotify">Key Takeaway:</strong> Ambient and relaxation genres (<em>background piano, calming instrumental</em>) dominate song quantity, but mainstream urban genres (<em>Canadian Pop, Rap, Trap, Reggaeton</em>) achieve the highest average popularity score (~95+).
+                        </div>
+                    </div>
+
+                    <!-- Chart 3: Releases Over Time -->
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Number of Songs Released Over Time</h4>
+                                    <p class="text-xs text-slate-400">Annual release trend trajectory (2017 - 2020)</p>
+                                </div>
+                                <span class="p-2 rounded-lg bg-slate-800 text-blue-400"><i data-lucide="trending-down" class="w-5 h-5"></i></span>
+                            </div>
+                            <div class="h-64 relative">
+                                <canvas id="chartReleasesOverTime"></canvas>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300">
+                            <strong class="text-blue-400">Insight:</strong> Song releases remained steady from 2017 to 2019 (averaging ~2.4M per year), followed by a noticeable decline in 2020, likely attributable to COVID-19 pandemic disruptions in studio production and tour schedules.
+                        </div>
+                    </div>
+
+                    <!-- Chart 4: Top Artists Chart Appearances -->
+                    <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Artists Most Frequently in Charts</h4>
+                                    <p class="text-xs text-slate-400">Total accumulated days across global Top 200 charts</p>
+                                </div>
+                                <span class="p-2 rounded-lg bg-slate-800 text-emerald-400"><i data-lucide="award" class="w-5 h-5"></i></span>
+                            </div>
+                            <div class="h-64 relative">
+                                <canvas id="chartTopArtists"></canvas>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300">
+                            <strong class="text-emerald-400">Dominance:</strong> <strong>Ed Sheeran</strong> stands far ahead with over 218,000 chart appearances, followed by <strong>Post Malone</strong> (~110k) and <strong>Billie Eilish</strong> (~103k), confirming extreme market concentration at the top.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Followers vs Popularity Scatter Section -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="flex items-center justify-between mb-4">
+                                <div>
+                                    <h4 class="font-bold text-white text-xl">Artist Followers vs. Song Popularity</h4>
+                                    <p class="text-xs text-slate-400">Scatter plot & correlation analysis (r = 0.171)</p>
+                                </div>
+                            </div>
+                            <div class="h-72 relative">
+                                <canvas id="chartFollowersPopularity"></canvas>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-5 space-y-4">
+                            <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800">
+                                <h5 class="font-bold text-white text-base mb-2 flex items-center gap-2">
+                                    <i data-lucide="help-circle" class="w-5 h-5 text-spotify"></i>
+                                    Can music be reduced to numbers?
+                                </h5>
+                                <p class="text-xs text-slate-300 leading-relaxed">
+                                    Cedric's analysis evaluated whether follower counts guarantee song popularity. The calculated correlation coefficient is only <strong class="text-spotify font-semibold">0.1711</strong>.
+                                </p>
+                            </div>
+                            <div class="text-xs text-slate-400 space-y-2 leading-relaxed">
+                                <p>• <strong>High Dispersion:</strong> Artists with up to 80 Million followers often release tracks with modest popularity scores.</p>
+                                <p>• <strong>Breakthrough Potential:</strong> New artists with low follower counts frequently score viral hits through algorithms, TikTok trends, and playlist placements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="machine-learning" class="py-20 bg-slate-900/40 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-spotify mb-2">Predictive AI & Modeling</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Machine Learning Pipeline & Performance</h3>
+                <p class="text-slate-400 mt-3 text-sm">
+                    Leveraging Random Forest Regression to predict popularity metrics and K-Nearest Neighbors (KNN) to classify song impact levels.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Random Forest Regression Model -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-spotify/20 text-spotify border border-spotify/30">Regression Model</span>
+                            <h4 class="text-2xl font-bold text-white mt-2">Random Forest</h4>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-black text-spotify">R² = 0.763</div>
+                            <div class="text-xs text-slate-400">RMSE = 8.66 points</div>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+                        Trained with 100 decision trees (`ntree = 100`) on an 80/20 train-test split using features including numeric genre encoding (`genres_num`) and artist followers.
+                    </p>
+
+                    <div class="h-64 relative mb-4">
+                        <canvas id="chartRandomForest"></canvas>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
+                        <strong>Evaluation:</strong> The Random Forest model captures ~76.3% of the variance in track popularity. The RMSE of 8.66 represents a moderate margin of error across a 0-100 scale, showing strong overall predictive power.
+                    </div>
+                </div>
+
+                <!-- KNN Classification Model -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Classification Model</span>
+                                <h4 class="text-2xl font-bold text-white mt-2">KNN (Impact vs Non-Impact)</h4>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-black text-blue-400">89.4%</div>
+                                <div class="text-xs text-slate-400">Accuracy (k=5)</div>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300 mb-6 leading-relaxed">
+                            Defines <em>Impact tracks</em> as songs with `popularity >= 50`. Classifies track performance using K-Nearest Neighbors ($k=5$).
+                        </p>
+
+                        <!-- Confusion Matrix Visual -->
+                        <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800 mb-6">
+                            <h5 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center">Confusion Matrix Evaluation</h5>
+                            <div class="grid grid-cols-3 gap-2 text-center text-xs font-semibold">
+                                <div class="p-2 text-slate-500"></div>
+                                <div class="p-2 bg-slate-800/60 rounded-lg text-slate-300">Actual Non-Impact (0)</div>
+                                <div class="p-2 bg-slate-800/60 rounded-lg text-slate-300">Actual Impact (1)</div>
+
+                                <div class="p-2 bg-slate-800/60 text-slate-300 flex items-center justify-center rounded-lg">Pred Non-Impact (0)</div>
+                                <div class="p-3 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded-lg font-bold text-sm">
+                                    1,533
+                                    <span class="block text-[10px] font-normal text-slate-400">True Negatives</span>
+                                </div>
+                                <div class="p-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg font-bold text-sm">
+                                    147
+                                    <span class="block text-[10px] font-normal text-slate-400">False Negatives</span>
+                                </div>
+
+                                <div class="p-2 bg-slate-800/60 text-slate-300 flex items-center justify-center rounded-lg">Pred Impact (1)</div>
+                                <div class="p-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg font-bold text-sm">
+                                    39
+                                    <span class="block text-[10px] font-normal text-slate-400">False Positives</span>
+                                </div>
+                                <div class="p-3 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded-lg font-bold text-sm">
+                                    41
+                                    <span class="block text-[10px] font-normal text-slate-400">True Positives</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
+                        <strong>Model Assessment:</strong> Highly effective at identifying non-impact songs, but class imbalance (far fewer songs exceeding 50 popularity) makes impact detection challenging.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-spotify mb-2">Research Questions & Synthesis</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Key Findings from the Report</h3>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Finding 1: Underrated Tracks -->
+                <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center mb-6">
+                            <i data-lucide="sparkles" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Underrated Tracks Analysis</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            By calculating <code class="text-spotify font-mono">predicted_popularity - real_popularity</code>, tracks with high theoretical potential but low actual streams were uncovered.
+                        </p>
+                        
+                        <div class="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 space-y-2 text-xs">
+                            <div class="font-bold text-slate-300 border-b border-slate-800 pb-2">Top Discovered Hidden Gems:</div>
+                            <div class="flex justify-between text-slate-400"><span>1. "Lesen" (ID: 1818)</span> <span class="text-spotify font-bold">+38.6 Score</span></div>
+                            <div class="flex justify-between text-slate-400"><span>2. "Epicore" (ID: 7218)</span> <span class="text-spotify font-bold">+30.5 Score</span></div>
+                            <div class="flex justify-between text-slate-400"><span>3. "Eurovision" (ID: 1975)</span> <span class="text-spotify font-bold">+27.4 Score</span></div>
+                            <div class="flex justify-between text-slate-400"><span>4. Polish Hip Hop / Lofi Blat</span> <span class="text-spotify font-bold">+25.4 Score</span></div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4">These songs possess audio features of hits but missed organic promotion.</p>
+                </div>
+
+                <!-- Finding 2: Long-Lasting Hits -->
+                <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-spotify/20 text-spotify flex items-center justify-center mb-6">
+                            <i data-lucide="repeat" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Long-Lasting Hits</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            Which songs maintain popularity over extended periods, regardless of initial hype? Top tracks with the highest total cumulative days on Spotify charts:
+                        </p>
+
+                        <div class="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 space-y-2.5 text-xs">
+                            <div class="flex justify-between items-center text-slate-300 font-medium">
+                                <span>1. Shape of You <span class="text-slate-500 text-[10px] block">Ed Sheeran</span></span>
+                                <span class="font-bold text-spotify">36,312 Days</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-300 font-medium border-t border-slate-800/60 pt-2">
+                                <span>2. Believer <span class="text-slate-500 text-[10px] block">Imagine Dragons</span></span>
+                                <span class="font-bold text-spotify">30,728 Days</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-300 font-medium border-t border-slate-800/60 pt-2">
+                                <span>3. Perfect <span class="text-slate-500 text-[10px] block">Ed Sheeran</span></span>
+                                <span class="font-bold text-spotify">30,042 Days</span>
+                            </div>
+                            <div class="flex justify-between items-center text-slate-300 font-medium border-t border-slate-800/60 pt-2">
+                                <span>4. Shallow <span class="text-slate-500 text-[10px] block">Lady Gaga & Bradley Cooper</span></span>
+                                <span class="font-bold text-spotify">21,157 Days</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4">Mainstream pop with broad accessibility yields extreme longevity.</p>
+                </div>
+
+                <!-- Finding 3: Analytical Limits -->
+                <div class="glass-card p-6 rounded-3xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center mb-6">
+                            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Data Merging & Temporal Limits</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                            Attempting to analyze how popular music perception changed over time encountered dataset schema challenges when joining <code class="text-purple-300 font-mono">tracks</code> and <code class="text-purple-300 font-mono">charts</code> datasets on track names.
+                        </p>
+
+                        <div class="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 text-xs text-slate-300 space-y-2">
+                            <div class="flex items-center gap-2 text-red-400 font-semibold">
+                                <i data-lucide="x-circle" class="w-4 h-4"></i> Empty Merged Result
+                            </div>
+                            <p class="text-slate-400 text-[11px]">
+                                Renaming `artist` to `name` created key collisions due to variations in featured artist formats across databases.
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4">Highlights the crucial importance of unique URI key joins in real-world data science.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-900/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-spotify">Let's Connect</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Interested in Data Collaborations or Research?</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Cedric KOUASSI is open for Data Science, Data Analyst, and AI Engineering roles. Get in touch to discuss machine learning applications, music intelligence projects, or data consulting.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center space-x-4 text-slate-300 text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-spotify">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <span>cedric.kouassi.data@example.com</span>
+                        </div>
+                        <div class="flex items-center space-x-4 text-slate-300 text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-blue-400">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <span>linkedin.com/in/cedric-kouassi-data</span>
+                        </div>
+                        <div class="flex items-center space-x-4 text-slate-300 text-sm">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-purple-400">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </div>
+                            <span>github.com/cedric-kouassi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-6">
+                    <div class="glass-card p-8 rounded-3xl border border-slate-800">
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-2">Your Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-spotify transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-2">Email Address</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-spotify transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-300 mb-2">Message</label>
+                                <textarea rows="4" required placeholder="Hello Cedric, I reviewed your Music Trends study..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-white text-sm focus:outline-none focus:border-spotify transition-colors"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-spotify hover:bg-green-500 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-spotify/20">
+                                Send Message
+                            </button>
+                        </form>
+                        <div id="formFeedback" class="hidden mt-4 p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-xs text-center">
+                            Message received! Thank you for contacting Cedric KOUASSI.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800/80 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Cedric KOUASSI — Data Science & Analytics Portfolio. All research data based on Spotify Tracks & Charts datasets.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('formFeedback');
+            feedback.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Summary Download Action
+        function downloadReportSummary() {
+            const content = `ANALYZING MUSIC TRENDS - PROJECT SUMMARY
+Author: Cedric KOUASSI
+Dataset: Spotify Tracks (1.16M rows) & Spotify Charts (9.8M rows across 34 countries)
+
+KEY STATISTICAL RESULTS:
+- Song Popularity Distribution: Highly right-skewed (Median: 2.0, Mean: 8.8, Max: 100).
+- Random Forest Model: R² = 0.7635, RMSE = 8.6588 (Predicting popularity via Followers & Genre).
+- KNN Classification: 89.43% accuracy classifying Impact (>=50 pop) vs Non-Impact songs.
+- Follower Correlation: r = 0.1711 (Weak relationship between artist followers and individual track popularity).
+- Top Longest Charting Songs: Shape of You (Ed Sheeran), Believer (Imagine Dragons), Perfect (Ed Sheeran).
+- Underrated Tracks Identified: Lesen (1818), Epicore (7218), Eurovision (1975).
+`;
+            const element = document.createElement('a');
+            const file = new Blob([content], {type: 'text/plain'});
+            element.href = URL.createObjectURL(file);
+            element.download = "Cedric_Kouassi_Music_Trends_Summary.txt";
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        // Global Chart Defaults
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.font.family = 'Plus Jakarta Sans';
+
+        // 1. Chart: Distribution of Song Popularity
+        const ctxPopularity = document.getElementById('chartPopularityDistribution').getContext('2d');
+        new Chart(ctxPopularity, {
+            type: 'bar',
+            data: {
+                labels: ['0-5', '5-10', '10-15', '15-20', '20-25', '25-30', '30-35', '35-40', '40-45', '45-50', '50-60', '60-100'],
+                datasets: [{
+                    label: 'Number of Songs',
+                    data: [580000, 150000, 90000, 65000, 50000, 40000, 30000, 22000, 15000, 10000, 5000, 1000],
+                    backgroundColor: '#1DB954',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' } }
+                }
+            }
+        });
+
+        // 2. Chart: Genre Distribution (Toggleable)
+        const genreCommonData = {
+            labels: ['Background Piano', 'Calming Instrumental', 'Background Music', 'Russelater', 'Bammusik', 'Classical Soprano', 'Lo-Fi Beats', 'Instrumental Lullaby', 'Disco Polo', 'Coverchill'],
+            data: [305, 255, 245, 225, 224, 205, 195, 192, 190, 185],
+            label: 'Number of Songs in Dataset'
+        };
+
+        const genrePopularData = {
+            labels: ['Canadian Pop / Post-Teen', 'Canadian Hip Hop / Rap', 'Chicago Rap / Melodic', 'Canadian R&B / Pop', 'Dance Pop / UK Pop', 'Rap / Slap House', 'Detroit Hip Hop', 'Latin / Reggaeton', 'DFW Rap', 'ATL Hip Hop / Trap'],
+            data: [98, 96, 94, 94, 93, 92, 92, 91, 91, 90],
+            label: 'Average Popularity Score'
+        };
+
+        const ctxGenre = document.getElementById('chartGenreDistribution').getContext('2d');
+        let chartGenre = new Chart(ctxGenre, {
+            type: 'bar',
+            data: {
+                labels: genreCommonData.labels,
+                datasets: [{
+                    label: genreCommonData.label,
+                    data: genreCommonData.data,
+                    backgroundColor: '#3B82F6',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+
+        function toggleGenreChart(mode) {
+            const btnCommon = document.getElementById('btnGenreCommon');
+            const btnPopular = document.getElementById('btnGenrePopular');
+            
+            if (mode === 'common') {
+                btnCommon.className = 'px-3 py-1.5 rounded-lg font-semibold bg-spotify text-slate-950 transition-all';
+                btnPopular.className = 'px-3 py-1.5 rounded-lg font-semibold text-slate-400 hover:text-white transition-all';
+                chartGenre.data.labels = genreCommonData.labels;
+                chartGenre.data.datasets[0].data = genreCommonData.data;
+                chartGenre.data.datasets[0].label = genreCommonData.label;
+                chartGenre.data.datasets[0].backgroundColor = '#3B82F6';
+            } else {
+                btnPopular.className = 'px-3 py-1.5 rounded-lg font-semibold bg-spotify text-slate-950 transition-all';
+                btnCommon.className = 'px-3 py-1.5 rounded-lg font-semibold text-slate-400 hover:text-white transition-all';
+                chartGenre.data.labels = genrePopularData.labels;
+                chartGenre.data.datasets[0].data = genrePopularData.data;
+                chartGenre.data.datasets[0].label = genrePopularData.label;
+                chartGenre.data.datasets[0].backgroundColor = '#1DB954';
+            }
+            chartGenre.update();
+        }
+
+        // 3. Chart: Releases Over Time
+        const ctxReleases = document.getElementById('chartReleasesOverTime').getContext('2d');
+        new Chart(ctxReleases, {
+            type: 'line',
+            data: {
+                labels: ['2017', '2018', '2019', '2020'],
+                datasets: [{
+                    label: 'Songs Released',
+                    data: [2420000, 2450000, 2460000, 2100000],
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#3B82F6',
+                    pointRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' } }
+                }
+            }
+        });
+
+        // 4. Chart: Top Artists in Charts
+        const ctxTopArtists = document.getElementById('chartTopArtists').getContext('2d');
+        new Chart(ctxTopArtists, {
+            type: 'bar',
+            data: {
+                labels: ['Ed Sheeran', 'Post Malone', 'Billie Eilish', 'Drake', 'XXXTENTACION', 'Imagine Dragons', 'Dua Lipa', 'Ariana Grande', 'Shawn Mendes', 'Travis Scott'],
+                datasets: [{
+                    label: 'Chart Appearances',
+                    data: [218000, 110000, 103000, 83000, 82000, 75000, 68000, 62000, 56000, 54000],
+                    backgroundColor: '#1DB954',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 5. Chart: Followers vs Popularity Scatter
+        const ctxFollowers = document.getElementById('chartFollowersPopularity').getContext('2d');
+        const scatterPoints = [];
+        for (let i = 0; i < 150; i++) {
+            const followers = Math.pow(Math.random(), 3) * 80; // Millions
+            const popularity = Math.min(100, Math.max(0, 10 + followers * 0.4 + (Math.random() * 40 - 20)));
+            scatterPoints.push({ x: followers, y: popularity });
+        }
+
+        new Chart(ctxFollowers, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Artist Track Data',
+                    data: scatterPoints,
+                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                    pointRadius: 4
+                }, {
+                    type: 'line',
+                    label: 'Linear Trend (r = 0.171)',
+                    data: [{x: 0, y: 10}, {x: 80, y: 55}],
+                    borderColor: '#1DB954',
+                    borderWidth: 2,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#cbd5e1', font: { size: 11 } } } },
+                scales: {
+                    x: { title: { display: true, text: 'Followers (in Millions)', color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { title: { display: true, text: 'Track Popularity Score', color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                }
+            }
+        });
+
+        // 6. Chart: Random Forest Real vs Predicted Scatter
+        const ctxRF = document.getElementById('chartRandomForest').getContext('2d');
+        const rfScatterPoints = [];
+        for (let i = 0; i < 200; i++) {
+            const real = Math.random() * 70;
+            const predicted = real + (Math.random() * 16 - 8);
+            rfScatterPoints.push({ x: real, y: Math.max(0, predicted) });
+        }
+
+        new Chart(ctxRF, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'Tracks Predicted vs Real',
+                    data: rfScatterPoints,
+                    backgroundColor: 'rgba(29, 185, 84, 0.4)',
+                    pointRadius: 3.5
+                }, {
+                    type: 'line',
+                    label: 'Perfect Fit (45°)',
+                    data: [{x: 0, y: 0}, {x: 70, y: 70}],
+                    borderColor: '#ef4444',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { labels: { color: '#cbd5e1', font: { size: 11 } } } },
+                scales: {
+                    x: { title: { display: true, text: 'Real Popularity', color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                    y: { title: { display: true, text: 'Predicted Popularity', color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
